@@ -26,9 +26,16 @@
   become: true
 
 # https://docs.syncthing.net/users/autostart.html#linux
+#
+# https://forum.syncthing.net/t/starting-syncthing-from-systemd-take-2/2849/3
+# You need the equivalent of this..
+# systemctl --user enable syncthing.service
+# systemctl --user start syncthing.service
+# 
 - name: Enable service if not started
   ansible.builtin.service:
     name: "sycnthing@{{ lookup('env', 'USER') }}"
     state: started
     enabled: true
+    scope: user
   become: true
