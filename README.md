@@ -6,6 +6,8 @@ This is just some personal configs for my Debian setup for Virtual box. Feel fre
 
 
 
+
+
 ## Usage
 
 ### Setup
@@ -50,11 +52,19 @@ PLAYBOOK="site-dev" ./scripts/deb-install.sh
 PLAYBOOK="site-sync" ./scripts/deb-install.sh
 ```
 
-#### 2c. syncthing install
+#### 2d. remote desktop install
 
 ```sh
 PLAYBOOK="site-remote" ./scripts/deb-install.sh
 ```
+
+#### 3 Reboot the machine
+
+1. Many services need to reboot the VM to get things to work.
+
+
+
+
 
 ## Notes
 
