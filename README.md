@@ -37,6 +37,12 @@ echo $SUDO_PASS | sudo apt install git -y && rm -rf /tmp/vm-configs && cd /tmp/ 
 ./scripts/deb-install-min.sh
 ```
 
+#### 2b. dev install
+
+```sh
+./scripts/deb-install-min.sh
+```
+
 ## Notes
 
 ### General

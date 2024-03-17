@@ -1,0 +1,5 @@
+---
+- name: Install dev tools
+  hosts: localhost
+  roles:
+    - golang
