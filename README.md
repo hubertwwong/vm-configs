@@ -17,6 +17,7 @@ SUDO_PASS - Sudo password of the VM user. If using the default install it shoul 
 GIT_EMAIL - This is used to set your github email.
 GIT_NAME - This is used to set your github name.
 GIT_BRANCH - The branch on this repo. Typically main but dev for testing out new features.
+PLAYBOOK - Playbook to run.
 ```
 
 #### 0. Set ENV variables
