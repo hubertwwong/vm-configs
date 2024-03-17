@@ -34,7 +34,7 @@
 # 
 - name: Enable service if not started
   ansible.builtin.service:
-    name: "sycnthing@{{ lookup('env', 'USER') }}"
+    name: syncthing
     state: started
     enabled: true
     scope: user
