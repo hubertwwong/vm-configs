@@ -13,6 +13,13 @@
   debug:
     msg: "{{ bash_aliases }}"
 
+- name: debug ls
+  shell: "ls {{ bash_aliases }}"
+
+# - name: Debug file path
+#   debug:
+#     msg: "{{ bash_aliases_src_file }}"
+
 - name: Debug dest
   debug:
     msg: "{{ ansible_env.HOME }}/.bash_aliases"
