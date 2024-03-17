@@ -25,4 +25,4 @@ echo $SUDO_PASS | sudo -S apt -y autoremove
 echo $SUDO_PASS | sudo -S apt -y install ansible git
 
 echo "> Installing"
-ansible-playbook -v --extra-vars "ansible_become_pass=$SUDO_PASS" "debian/"$PLAYBOOK".yaml"
+ansible-playbook -vv --extra-vars "ansible_become_pass=$SUDO_PASS" "debian/"$PLAYBOOK".yaml"
