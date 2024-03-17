@@ -16,12 +16,13 @@ is_defined 'SUDO_PASS' $SUDO_PASS
 is_defined 'GIT_EMAIL' $GIT_EMAIL
 is_defined 'GIT_PASSWORD' $GIT_NAME
 is_defined 'GIT_BRANCH' $GIT_BRANCH
+is_defined 'PLAYBOOK' $PLAYBOOK
 
-echo "> Install ansible and git"
+echo "> Install required packages"
 echo $SUDO_PASS | sudo -S apt update && echo $SUDO_PASS | sudo -S apt -y upgrade 
 echo $SUDO_PASS | sudo -S apt -y autoclean
 echo $SUDO_PASS | sudo -S apt -y autoremove
 echo $SUDO_PASS | sudo -S apt -y install ansible git
 
 echo "> Installing"
-ansible-playbook -v --extra-vars "ansible_become_pass=$SUDO_PASS" debian/site.yaml
+ansible-playbook -v --extra-vars "ansible_become_pass=$SUDO_PASS" "debian/"$PLAYBOOK".yaml"

@@ -34,13 +34,13 @@ echo $SUDO_PASS | sudo apt install git -y && rm -rf /tmp/vm-configs && cd /tmp/ 
 #### 2a. minimal install
 
 ```sh
-./scripts/deb-install-min.sh
+PLAYBOOK="site" ./scripts/deb-install.sh
 ```
 
 #### 2b. dev install
 
 ```sh
-./scripts/deb-install-min.sh
+PLAYBOOK="site-dev" ./scripts/deb-install.sh
 ```
 
 ## Notes
