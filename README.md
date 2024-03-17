@@ -54,6 +54,8 @@ PLAYBOOK="site-sync" ./scripts/deb-install.sh
 
 #### 2d. remote desktop install
 
+XRDP is deprecated. Find some other client.
+
 ```sh
 PLAYBOOK="site-remote" ./scripts/deb-install.sh
 ```
