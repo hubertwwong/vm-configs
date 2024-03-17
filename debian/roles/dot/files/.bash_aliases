@@ -14,7 +14,6 @@ ZZ_SCRIPTS_DIR="~/configs/vm_configs"
 
 # Other ENV
 ##############################################################################
-export GPODDER_DOWNLOAD_DIR=$ZZ_SYNC_DIR/../podcasts
 export email="hubertwwong@gmail.com"
 
 # Color schemes constants
@@ -87,6 +86,9 @@ docker-ip() {
 # Aliases
 ##############################################################################
 
+# Unsorted
+##############################################################################
+
 # LS
 ####
 alias l2="ls -alF"
@@ -104,30 +106,14 @@ alias aaEditScripts="code $ZZ_SCRIPTS_DIR/scripts"
 export PATH=$PATH:$ZZ_SCRIPTS_DIR/bin
 alias aaChmodXScripts="chmod +x $ZZ_SCRIPTS_DIR/bin/*"
 
-# Paths
-alias aaGoDocker="cd $ZZ_SYNC_DIR/docker"
-alias aaGoStudy="cd $ZZ_SYNC_DIR/study"
-alias aaGoNotes="cd $ZZ_SYNC_DIR/study"
-alias aaGoScripts="cd $ZZ_SCRIPTS_DIR"
-alias aaGoSync="cd $ZZ_SYNC_DIR"
-
-# USB download directory for ubuntu.
-alias aaGoUSBDownload="cd /media/*/*/downloads"
-
-# Scripts
+# APT
+######
 
 # Simple helper reduce typing
 alias aaAptInstall="sudo apt -y update && sudo apt -y install"
 
 # Init this file.
 # alias aaUpdateBash="cp $ZZ_SCRIPTS_DIR/.bash_aliases ~/;source .bashrc"
-
-# Git
-alias ggi="git init"
-alias gga="git add ."
-alias ggc="git commit -m"
-alias ggf="git fetch"
-alias ggs="git status"
 
 # Misc
 alias aaOwnDir="sudo chown -R $USER:$USER ."
@@ -138,28 +124,26 @@ alias aaFree1="du -h --max-depth=1 | sort -n"
 alias aaClean="yarn cache clean; docker system prune -a -f;"
 # Probably a cron is better.
 
-# Install
-#########
 
-# Some basic libs
-#alias aaInstallBasic="aaAptInstall git curl vim htop tmux"
-#alais aaInstallMisc="aaAptInstall "
-# Docker. https://docs.docker.com/install/linux/docker-ce/ubuntu/
-# NOTE: You want the version created by docker corp.
-#alias aaInstallDocker="aaAptInstall apt-transport-https ca-certificates curl gnupg-agent software-properties-common;curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -;sudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\";aaAptInstall docker-ce docker-ce-cli containerd.io"
-#alias aaInstallVSCode="sudo snap install --classic code"
-# alias aaInstallI3="aaAptInstall i3 i3blocks rxvt-unicode lxappearance"
-#alias aaInstallSync='echo "deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free" | sudo tee /etc/apt/sources.list.d/resilio-sync.list && curl -LO http://linux-packages.resilio.com/resilio-sync/key.asc && sudo apt-key add ./key.asc && sudo apt-get update && sudo apt-get install -y resilio-sync'
-#alias aaInstallChrome='wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo dpkg -i google-chrome-stable_current_amd64.deb'
-#alias aaInstallAll="aaInstallBasic && aaInstallDocker && aaInstallVSCode && aaInstallI3 && aaInstallSync && aaInstallChrome"
 
 # Shell helpers
 ##############################################################################
 
-
 # TMUX
 #######
 # [[ $TERM != "screen" ]] && exec tmux
+
+
+
+# Git
+##############################################################################
+
+alias ggi="git init"
+alias gga="git add ."
+alias ggc="git commit -m"
+alias ggf="git fetch"
+alias ggs="git status"
+
 
 
 # Programming Langs
@@ -179,7 +163,7 @@ export PATH=$PATH:$HOME/.local/bin:/usr/local/go/bin
 # Base assumption. This is using the ubuntu install of jdk and maven
 
 # JAVA HOME required for maven
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+# export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 # Node
 ######
@@ -197,13 +181,18 @@ alias aaNodeCleanNPM="sudo find . -name "node_modules" -type d -prune -exec rm -
 # Python
 ########
 # Poetry. Assumes its installed. First part if
-[ -d "$HOME/.poetry/env" ] && source $HOME/.poetry/env
+#[ -d "$HOME/.poetry/env" ] && source $HOME/.poetry/env
 # set set python to python 3...
 # NOTE: ansible has a ln command. Not required.
 # alias python="python3"
 
-# Kubernetes aliases
+
+
+# Platform
 ##############################################################################
+
+# Kubernetes
+############
 
 # command 
 alias k="kubectl"
@@ -257,28 +246,43 @@ alias kxsa="kubectl delete ServiceAccount"
 alias kxss="kubectl delete StatefulSet"
 
 # log
-alias kl="kubectl logs --follow"
+alias kl="kubectl logs"
+alias klf="kubectl logs --follow"
 
 # unsorted
 alias kgn="kubectl get namespaces"
 alias ka="kubectl apply -f"
 
-# minikube
-##############################################################################
+# Minikube
+##########
 
 # command
-alias mk="minikube"
-alias mkStart="minikube start --memory=4g && minikube addons enable ingress && minikube addons enable dashboard && minikube addons enable metrics-server"
-alias mkRestart="minikube delete && mkStart"
+# alias mk="minikube"
+# alias mkStart="minikube start --memory=4g && minikube addons enable ingress && minikube addons enable dashboard && minikube addons enable metrics-server"
+# alias mkRestart="minikube delete && mkStart"
 
 # upgrade to the latest
-alias mkUpgrade="sudo rm -rf /usr/local/bin/minikube && sudo curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && sudo chmod +x minikube && sudo cp minikube /usr/local/bin/ && sudo rm minikube"
+# alias mkUpgrade="sudo rm -rf /usr/local/bin/minikube && sudo curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && sudo chmod +x minikube && sudo cp minikube /usr/local/bin/ && sudo rm minikube"
 
 # general
-alias mkd="minikube dashboard"
-alias mkse="minikube service"
-alias mkst="minikube start"
-alias mkde="minikube delete"
+# alias mkd="minikube dashboard"
+# alias mkse="minikube service"
+# alias mkst="minikube start"
+# alias mkde="minikube delete"
+
+# GO
+##############################################################################
+
+# Paths
+alias aaGoDocker="cd $ZZ_SYNC_DIR/docker"
+alias aaGoStudy="cd $ZZ_SYNC_DIR/study"
+alias aaGoNotes="cd $ZZ_SYNC_DIR/study"
+alias aaGoScripts="cd $ZZ_SCRIPTS_DIR"
+alias aaGoSync="cd $ZZ_SYNC_DIR"
+
+# USB download directory for ubuntu.
+alias aaGoUSBDownload="cd /media/*/*/downloads"
+
 
 # Update scripts
 ##############################################################################
