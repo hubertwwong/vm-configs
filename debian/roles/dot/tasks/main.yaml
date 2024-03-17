@@ -1,7 +1,7 @@
 # TODO: add a env variable check.
 - name: Store .bash_aliases env
   stat:
-    path: "{{bash_aliases_src_file}}"
+    path: "{{ bash_aliases_src_file }}"
   register: bash_aliases
 
 # - name: Store .tmux.conf path 
@@ -11,16 +11,16 @@
 
 - name: Debug src
   debug:
-    msg: "{{bash_aliases}}"
+    msg: "{{ bash_aliases }}"
 
 - name: Debug dest
   debug:
-    msg: "{{ansible_env.HOME}}/.bash_aliases"
+    msg: "{{ ansible_env.HOME }}/.bash_aliases"
 
 - name: Create a symlink for .bash_aliases
   file:
-    src: "{{bash_aliases.stat.path}}"
-    dest: "{{ansible_env.HOME}}/{{bash_aliases_filename}}"
+    src: "{{ bash_aliases.stat.path }}"
+    dest: "{{ ansible_env.HOME }}/{{ bash_aliases_filename }}"
     state: link
   when: bash_aliases.stat.exists
 
