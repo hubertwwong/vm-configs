@@ -1,0 +1,9 @@
+---
+- name: Install a few extra packages
+  package:
+    name:
+      - gnome-online-accounts
+      - libavcodec-extra
+    state: present
+    update_cache: true
+  become: true

@@ -1,0 +1,19 @@
+---
+- hosts: 127.0.0.1
+  tasks:
+  - name: Ansible apt with_items example
+    ansible.builtin.apt:
+      name: 
+        - 'curl'
+        - 'git'
+        - 'gnome-online-accounts'
+        - 'htop'
+        - 'keepass2'
+        - 'libavcodec-extra'
+        - 'software-properties-common'
+        - 'tmux'
+        - 'vim'
+        - 'vlc'
+      update_cache: true
+      state: absent
+    become: yes

@@ -1,0 +1,44 @@
+# https://www.linuxbabe.com/debian/install-syncthing
+- name: Install prereq packages. Https so need apt-transport-https
+  package:
+    name:
+      - apt-transport-https 
+      - gnupg2
+  become: true
+
+- name: gpg key
+  apt_key:
+    url: https://syncthing.net/release-key.gpg
+    state: present
+  become: true
+
+- name: Add syncthing repo
+  apt_repository:
+    repo: "deb https://apt.syncthing.net/ syncthing stable"
+    state: present
+    update_cache: yes
+  become: true
+
+- name: Install syncthing
+  package:
+    name:
+      - syncthing
+  become: true
+
+# https://docs.syncthing.net/users/autostart.html#linux
+#
+# https://forum.syncthing.net/t/starting-syncthing-from-systemd-take-2/2849/3
+# You need the equivalent of this..
+# systemctl --user enable syncthing.service
+# systemctl --user start syncthing.service
+# 
+# Notes:
+# 1. Scope to user.
+# 2. No root. You want to run this for the current user.
+- name: Enable service if not started
+  ansible.builtin.service:
+    name: syncthing.service
+    state: started
+    enabled: true
+    scope: user
+

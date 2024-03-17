@@ -1,0 +1,4 @@
+- name: Run a single role to test
+  hosts: localhost
+  roles:
+    - docker-ce

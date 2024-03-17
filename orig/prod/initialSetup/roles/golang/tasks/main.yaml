@@ -1,0 +1,11 @@
+- name: Download the golang tar
+  get_url:
+    url: https://dl.google.com/go/go1.14.4.linux-amd64.tar.gz
+    dest: /tmp/golang.tar.gz
+
+- name: Decompress archive
+  unarchive:
+    src: /tmp/golang.tar.gz
+    dest: /usr/local
+  become: yes
+  

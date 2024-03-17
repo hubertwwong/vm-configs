@@ -1,0 +1,23 @@
+- name: Install git
+  ansible.builtin.package:
+    name: 
+      - git
+    state: present
+  become: true
+
+# Note: Need double quotes to appear around the name because names could have spaces.
+- name: Update git name
+  shell: git config --global --replace-all user.name "{{git_name}}"
+  when: git_name != ""
+
+- name: Update git email address
+  shell: git config --global --replace-all user.email {{git_email}}
+  when: git_email != ""
+
+- name: Update git credential helper cache
+  shell: git config --global credential.helper cache
+
+# I don't think this works.
+# The idea is to set the password expiration to 1 year
+# - name: Set timeout for git cache for 1 year
+#   shell: git config credential.helper 'cache --timeout=3153600000'

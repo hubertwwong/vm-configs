@@ -1,0 +1,17 @@
+# failed_when is to bypass grep returning error when not found.
+# https://stackoverflow.com/questions/34340562/evaluating-return-code-in-ansible-conditional
+- name: Test to see if fs.inotify line exist in /etc/sysctl.conf
+  shell: cat /etc/sysctl.conf | grep "^fs.inotify"
+  register: test_fs_inotify
+  failed_when: test_fs_inotify == 2
+
+- name: Update /etc/sysctl.conf with fs_inotify
+  lineinfile:
+    dest: /etc/sysctl.conf
+    line: fs.inotify.max_user_watches=524288
+  when: test_fs_inotify != ""
+  become: yes
+
+- name: Update /etc/sysctl.conf after changes
+  shell: sysctl -p
+  become: yes

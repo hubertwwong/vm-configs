@@ -1,0 +1,19 @@
+# - find:
+#     paths:
+#       - "/media/{{ ansible_user }}"
+#     patterns:
+#       - "VBoxLinuxAdditions.run*"
+#   register: file_details
+
+# - name: Check if file exist. Register it to file_details.
+#   stat:
+#     path: /media/{{ ansible_user }}/V*/VBoxLinuxAdditions.run
+#   register: file_details
+
+# Note. There is a terminal window that pops up that prevents this from being automated.
+# --nox11 does not spawn the xterm.
+# Ignore error flag needed because it will prompt you to restart. This will cause a fail shell code.
+- name: Updates the VBoxGuest additions. Assumes the image is mounted.
+  shell: "/media/{{ ansible_user }}/V*/VBoxLinuxAdditions.run --nox11"
+  become: yes
+  ignore_errors: yes

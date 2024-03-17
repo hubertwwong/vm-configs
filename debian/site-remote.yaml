@@ -1,0 +1,5 @@
+---
+- name: Install remote desktop
+  hosts: localhost
+  roles:
+    - xrdp

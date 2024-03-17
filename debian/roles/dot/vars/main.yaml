@@ -1,0 +1,6 @@
+# dot_file_dir: dotfiles
+bash_aliases_filename: ".bash_aliases"
+#tmux_conf_filename: ".tmux.conf"
+#bash_aliases_src_file: "{{ playbook_dir }}/../../files/{{ bash_aliases_filename }}"
+bash_aliases_src_file: "{{ playbook_dir }}/../files/{{ bash_aliases_filename }}"
+#tmux_file: "{{dot_file_dir}}/{{tmux_conf_filename}}"

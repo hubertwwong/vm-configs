@@ -1,0 +1,11 @@
+---
+- hosts: 127.0.0.1
+  tasks:
+  - apt: 
+      pkg: transmission-common
+      state: absent
+    become: yes    
+  - apt: 
+      pkg: transmission-gtk
+      state: absent
+    become: yes    

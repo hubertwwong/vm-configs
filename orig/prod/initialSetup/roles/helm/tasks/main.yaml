@@ -1,0 +1,20 @@
+- name: Add helm key
+  apt_key:
+    url: https://helm.baltorepo.com/organization/signing.asc
+    state: present
+  become: yes
+ 
+- name: Add helm repo
+  apt_repository:
+    repo: "deb https://baltocdn.com/helm/stable/debian/ all main"
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: Install helm
+  ansible.builtin.package:
+    name:
+      - apt-transport-https
+      - helm
+    state: present
+  become: yes
