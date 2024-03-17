@@ -29,5 +29,5 @@
 - name: Enable service if not started. You might need to restart the OS.
   ansible.builtin.service:
     name: "sycnthing@{{ lookup('env', 'USER') }}"
-    state: yes
+    state: restarted
   become: true
