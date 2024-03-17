@@ -10,8 +10,15 @@ This is just some personal configs for my Debian setup for Virtual box. Feel fre
 
 ### Setup
 
+#### Main version
+
 ```sh
-SUDO_PASS=changeme GIT_EMAIL="foo@bar.com" GIT_NAME="Hubert Wong" ./scripts/deb-install-min.sh
+SUDO_PASS='changeme' GIT_EMAIL='foo@bar.com' GIT_NAME='Hubert Wong' GIT_BRANCH='main' ./scripts/deb-install-min.sh
+```
+#### Development
+
+```sh
+SUDO_PASS='changeme' GIT_EMAIL='foo@bar.com' GIT_NAME='Hubert Wong' GIT_BRANCH='dev' ./scripts/deb-install-min.sh
 ```
 
 ## Notes

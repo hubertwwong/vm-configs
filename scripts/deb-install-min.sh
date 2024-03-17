@@ -13,7 +13,8 @@ function is_defined {
 
 is_defined 'SUDO_PASS' $SUDO_PASS
 is_defined 'GIT_EMAIL' $GIT_EMAIL
-is_defined 'GIT_PASSWORD' $GIT_PASSWORD
+is_defined 'GIT_PASSWORD' $GIT_NAME
+is_defined 'GIT_BRANCH' $GIT_BRANCH
 
 #export SUDO_PASS=changeme 
 #export GIT_EMAIL="foo@bar.com"
@@ -32,5 +33,7 @@ echo $SUDO_PASS | sudo -S apt -y autoremove
 echo $SUDO_PASS | sudo -S apt -y install ansible git
 
 echo "> Clone the repo"
-git clone https://github.com/hubertwwong/xubuntuDesktopConfig.git . 
+git clone https://github.com/hubertwwong/vm-configs.git
+cd vm-configs
+git checkout $GIT_BRANCH
 # ansible-playbook -v --extra-vars "ansible_become_pass=$SUDO_PASS" prod/initialSetup/site-deb.yaml
