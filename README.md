@@ -19,12 +19,19 @@ GIT_NAME - This is used to set your github name.
 GIT_BRANCH - The branch on this repo. Typically main but dev for testing out new features.
 ```
 
-#### Main version
+
+#### 1. Get repo
+
+```sh
+rm -rf /tmp/vm-configs && mkdir -p /tmp/vm-configs && cd /tmp/vm-configs && git clone https://github.com/hubertwwong/vm-configs.git
+```
+
+#### 2a. min - stable
 
 ```sh
 SUDO_PASS='changeme' GIT_EMAIL='foo@bar.com' GIT_NAME='Hubert Wong' GIT_BRANCH='main' ./scripts/deb-install-min.sh
 ```
-#### Development
+#### 2b. min -dev
 
 ```sh
 SUDO_PASS='changeme' GIT_EMAIL='foo@bar.com' GIT_NAME='Hubert Wong' GIT_BRANCH='dev' ./scripts/deb-install-min.sh

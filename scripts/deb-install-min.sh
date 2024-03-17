@@ -21,10 +21,10 @@ is_defined 'GIT_BRANCH' $GIT_BRANCH
 #export GIT_NAME="Hubert Wong"
 INSTALL_DIR=/tmp/vm-configs
 
-echo "> Recreating the install directory"
-rm -rf /tmp/vm-configs
-mkdir -p /tmp/vm-configs
-cd /tmp/vm-configs
+# echo "> Recreating the install directory"
+# rm -rf /tmp/vm-configs
+# mkdir -p /tmp/vm-configs
+# cd /tmp/vm-configs
 
 echo "> Install ansible and git"
 echo $SUDO_PASS | sudo -S apt update && echo $SUDO_PASS | sudo -S apt -y upgrade 
