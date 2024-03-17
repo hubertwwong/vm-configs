@@ -19,22 +19,22 @@ GIT_NAME - This is used to set your github name.
 GIT_BRANCH - The branch on this repo. Typically main but dev for testing out new features.
 ```
 
+#### 0. Set ENV variables
+
+```sh
+export SUDO_PASS='changeme' && export GIT_EMAIL='foo@bar' && export GIT_NAME='Hubert Wong' && export GIT_BRANCH='main'
+```
 
 #### 1. Get repo
 
 ```sh
-rm -rf /tmp/vm-configs && mkdir -p /tmp/vm-configs && cd /tmp/vm-configs && git clone https://github.com/hubertwwong/vm-configs.git
+echo $SUDO_PASS | sudo apt install git -y && rm -rf /tmp/vm-configs && mkdir -p /tmp/vm-configs && cd /tmp/vm-configs && git clone https://github.com/hubertwwong/vm-configs.git
 ```
 
-#### 2a. min - stable
+#### 2a. minimal install
 
 ```sh
-SUDO_PASS='changeme' GIT_EMAIL='foo@bar.com' GIT_NAME='Hubert Wong' GIT_BRANCH='main' ./scripts/deb-install-min.sh
-```
-#### 2b. min -dev
-
-```sh
-SUDO_PASS='changeme' GIT_EMAIL='foo@bar.com' GIT_NAME='Hubert Wong' GIT_BRANCH='dev' ./scripts/deb-install-min.sh
+./scripts/deb-install-min.sh
 ```
 
 ## Notes
