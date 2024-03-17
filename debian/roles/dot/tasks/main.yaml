@@ -1,32 +1,29 @@
-# TODO: add a env variable check.
-- name: Store .bash_aliases env
-  stat:
-    path: "{{ bash_aliases_src_file }}"
-  register: bash_aliases
+# # TODO: add a env variable check.
+# - name: Store .bash_aliases env
+#   stat:
+#     path: "{{ bash_aliases_src_file }}"
+#   register: bash_aliases
 
 # - name: Store .tmux.conf path 
 #   stat:
 #     path: "{{lookup('env', 'BASH_DOT_PATH')}}/{{tmux_file}}"
 #   register: tmux_file 
 
-- name: Debug src
-  debug:
-    msg: "{{ bash_aliases }}"
-
-- name: debug ls
-  shell: "ls {{ bash_aliases }}"
+# - name: Debug src
+#   debug:
+#     msg: "{{ bash_aliases }}"
 
 # - name: Debug file path
 #   debug:
 #     msg: "{{ bash_aliases_src_file }}"
 
-- name: Debug dest
-  debug:
-    msg: "{{ ansible_env.HOME }}/.bash_aliases"
+# - name: Debug dest
+#   debug:
+#     msg: "{{ ansible_env.HOME }}/.bash_aliases"
 
 - name: Create a symlink for .bash_aliases
   file:
-    src: "{{ bash_aliases.stat.path }}"
+    src: "{{ role_path }}/files/.bash_aliases"
     dest: "{{ ansible_env.HOME }}/{{ bash_aliases_filename }}"
     state: link
   when: bash_aliases.stat.exists
