@@ -28,7 +28,7 @@ export SUDO_PASS='changeme' && export GIT_EMAIL='foo@bar' && export GIT_NAME='Hu
 #### 1. Get repo
 
 ```sh
-echo $SUDO_PASS | sudo apt install git -y && rm -rf /tmp/vm-configs && mkdir -p /tmp/vm-configs && cd /tmp/vm-configs && git clone https://github.com/hubertwwong/vm-configs.git
+echo $SUDO_PASS | sudo apt install git -y && rm -rf /tmp/vm-configs && mkdir -p /tmp/vm-configs && cd /tmp/vm-configs && git clone https://github.com/hubertwwong/vm-configs.git && cd vm-configs && git checkout $GIT_BRANCH
 ```
 
 #### 2a. minimal install

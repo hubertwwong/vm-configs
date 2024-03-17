@@ -23,10 +23,5 @@ echo $SUDO_PASS | sudo -S apt -y autoclean
 echo $SUDO_PASS | sudo -S apt -y autoremove
 echo $SUDO_PASS | sudo -S apt -y install ansible git
 
-echo "> Clone the repo"
-git clone https://github.com/hubertwwong/vm-configs.git
-cd vm-configs
-git checkout $GIT_BRANCH
-
 echo "> Installing"
 ansible-playbook -v --extra-vars "ansible_become_pass=$SUDO_PASS" debian/site.yaml
