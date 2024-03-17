@@ -26,8 +26,14 @@
   become: true
 
 # https://docs.syncthing.net/users/autostart.html#linux
-- name: Enable service if not started. You might need to restart the OS.
+- name: Enable service if not started
   ansible.builtin.service:
     name: "sycnthing@{{ lookup('env', 'USER') }}"
-    state: restarted
+    state: enable
+  become: true
+
+- name: Start service if not started
+  ansible.builtin.service:
+    name: "sycnthing@{{ lookup('env', 'USER') }}"
+    state: start
   become: true
