@@ -50,6 +50,12 @@ PLAYBOOK="site-dev" ./scripts/deb-install.sh
 PLAYBOOK="site-sync" ./scripts/deb-install.sh
 ```
 
+#### 2c. syncthing install
+
+```sh
+PLAYBOOK="site-remote" ./scripts/deb-install.sh
+```
+
 ## Notes
 
 ### General

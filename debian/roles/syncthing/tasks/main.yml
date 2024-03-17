@@ -32,6 +32,9 @@
 # systemctl --user enable syncthing.service
 # systemctl --user start syncthing.service
 # 
+# Notes:
+# 1. Scope to user.
+# 2. No root. You want to run this for the current user.
 - name: Enable service if not started
   ansible.builtin.service:
     name: syncthing.service
