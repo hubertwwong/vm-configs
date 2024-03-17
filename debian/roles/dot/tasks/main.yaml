@@ -26,7 +26,6 @@
     src: "{{ role_path }}/files/.bash_aliases"
     dest: "{{ ansible_env.HOME }}/{{ bash_aliases_filename }}"
     state: link
-  when: bash_aliases.stat.exists
 
 # - name: Create a symlink for .tmux.conf
 #   file:
