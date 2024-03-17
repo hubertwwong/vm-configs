@@ -4,7 +4,7 @@
     - fonts-liberation
     - libu2f-udev
     state: present
-  become: yes
+  become: true
 
 - name: Download google chrome deb
   get_url:
@@ -14,4 +14,4 @@
 
 - name: Install google chrome
   shell: dpkg -i /tmp/chrome.deb
-  become: yes
+  become: true

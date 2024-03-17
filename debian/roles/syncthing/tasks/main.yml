@@ -4,29 +4,29 @@
     name:
       - apt-transport-https 
       - gnupg2
-  become: yes
+  become: true
 
-- name: Get syncthing gpg key
+- name: gpg key
   apt_key:
     url: https://syncthing.net/release-key.gpg
     state: present
-  become: yes
+  become: true
 
 - name: Add syncthing repo
   apt_repository:
     repo: "deb https://apt.syncthing.net/ syncthing stable"
     state: present
     update_cache: yes
-  become: yes
+  become: true
 
 - name: Install syncthing
   package:
     name:
       - syncthing
-  become: yes
+  become: true
 
 - name: Enable service if not started
   ansible.builtin.service:
     name: "sycnthing@{{ lookup('env', 'USER') }}"
     state: yes
-  become: yes
+  become: true

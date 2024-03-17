@@ -1,0 +1,5 @@
+---
+- name: Install syncthing
+  hosts: localhost
+  roles:
+    - syncthing

@@ -3,7 +3,7 @@
     name: 
       - git
     state: present
-  become: yes
+  become: true
 
 # Note: Need double quotes to appear around the name because names could have spaces.
 - name: Update git name

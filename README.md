@@ -44,6 +44,12 @@ PLAYBOOK="site" ./scripts/deb-install.sh
 PLAYBOOK="site-dev" ./scripts/deb-install.sh
 ```
 
+#### 2c. syncthing install
+
+```sh
+PLAYBOOK="site-sync" ./scripts/deb-install.sh
+```
+
 ## Notes
 
 ### General
@@ -56,6 +62,10 @@ Default credential
 vboxuser
 changeme
 ```
+
+### VM automated install.
+
+If VirtualBox is able to do the unattended install, it will probably be able to do the guest installs.
 
 ## Scratch
 
