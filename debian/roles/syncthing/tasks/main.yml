@@ -29,11 +29,6 @@
 - name: Enable service if not started
   ansible.builtin.service:
     name: "sycnthing@{{ lookup('env', 'USER') }}"
-    state: enable
-  become: true
-
-- name: Start service if not started
-  ansible.builtin.service:
-    name: "sycnthing@{{ lookup('env', 'USER') }}"
-    state: start
+    state: started
+    enabled: true
   become: true
