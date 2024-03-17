@@ -1,0 +1,37 @@
+# https://tecadmin.net/how-to-install-xrdp-on-debian-10/
+
+- name: Install xdrp
+  ansible.builtin.package:
+    name:
+      - xrdp
+      - xfce4
+      - xfce4-goodies
+    state: present
+  become: yes
+
+- name: Start service xrdp
+  ansible.builtin.service:
+    name: xrdp
+    state: started
+    enabled: yes
+  become: yes
+
+- name: Add the user 'xrdp' with a specific uid and a primary group of 'ssl-cert'
+  ansible.builtin.user:
+    name: xrdp
+    group: ssl-cert
+  become: yes
+
+- name: Copy startwm.sh to start with xfce4
+  ansible.builtin.copy:
+    src: startwm.sh
+    dest: /etc/xrdp
+  become: yes
+
+- name: Restart xrdp
+  ansible.builtin.service:
+    name: xrdp
+    state: restarted
+  become: yes
+
+# Firewall??

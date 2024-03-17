@@ -1,0 +1,13 @@
+---
+- name: Run the other roles
+  hosts: localhost
+  roles:
+    - packages_basic
+    - timezone_local
+    - dot
+    - chrome
+    - vscode
+    - python
+    - golang
+    - git
+    - docker_ce

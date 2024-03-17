@@ -1,0 +1,4 @@
+# Note: Generally, you keep clocks to UTC but this is a desktop config.
+- name: Change timezone for PST.
+  shell: timedatectl set-timezone America/Los_Angeles
+  become: yes

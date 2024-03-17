@@ -1,0 +1,9 @@
+- name: Install packages need to compile the vbox guest additions.
+  ansible.builtin.package:
+    name:
+      - "linux-headers-{{ ansible_kernel }}"
+      - build-essential
+      - dkms
+      - gcc
+    state: present
+  become: yes

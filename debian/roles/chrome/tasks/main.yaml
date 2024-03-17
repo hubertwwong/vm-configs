@@ -1,0 +1,17 @@
+- name: Install prerequisites
+  ansible.builtin.apt:
+    pkg: 
+    - fonts-liberation
+    - libu2f-udev
+    state: present
+  become: yes
+
+- name: Download google chrome deb
+  get_url:
+    url: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    dest: /tmp/chrome.deb
+    mode: 0755
+
+- name: Install google chrome
+  shell: dpkg -i /tmp/chrome.deb
+  become: yes

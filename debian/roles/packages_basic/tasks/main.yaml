@@ -1,0 +1,15 @@
+- name: Install some basic packages
+  package:
+    name:
+      - apt-transport-https
+      - curl
+      - git
+      - gpg 
+      - htop
+      - keepassxc
+      - software-properties-common
+      - vim
+      - wget
+    state: present
+    update_cache: true
+  become: true
