@@ -10,6 +10,15 @@ This is just some personal configs for my Debian setup for Virtual box. Feel fre
 
 ### Setup
 
+#### ENV vars
+
+```sh
+SUDO_PASS - Sudo password of the VM user. If using the default install it shoul be changeme.
+GIT_EMAIL - This is used to set your github email.
+GIT_NAME - This is used to set your github name.
+GIT_BRANCH - The branch on this repo. Typically main but dev for testing out new features.
+```
+
 #### Main version
 
 ```sh
