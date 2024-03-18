@@ -1,0 +1,22 @@
+---
+- name: Debug for bookwork.
+  debug:
+    msg: "{{ ansible_facts }}"
+
+# - name: Add non free repo
+#   apt_repository:
+#     repo: "deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware"
+#     state: present
+#     update_cache: yes
+#   become: true
+
+# - name: Install driver
+#   package:
+#     name:
+#       - nvidia-driver
+#       - firmware-misc-nonfree
+#     state: present
+#     update_cache: true
+#   become: true
+
+# Restart after this.

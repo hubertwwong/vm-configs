@@ -1,0 +1,5 @@
+---
+- name: Install nvidia driver
+  hosts: localhost
+  roles:
+    - driver-nvidia

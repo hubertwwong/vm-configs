@@ -60,6 +60,17 @@ Gnome has a pretty good server.
 3. Toggle remote desktop and remote control.
 4. Change the password. Its randomized.
 
+
+#### 2e. nvidia drivers
+
+If you need Nvdia drivers, run this. Still a WIP.
+
+```sh
+PLAYBOOK="site-nvidia" ./scripts/deb-install.sh
+```
+
+https://wiki.debian.org/NvidiaGraphicsDrivers#Debian_12_.22Bookworm.22
+
 #### 3 Reboot the machine
 
 1. Many services need to reboot the VM to get things to work.
