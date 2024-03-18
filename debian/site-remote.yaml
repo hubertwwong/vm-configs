@@ -2,4 +2,4 @@
 - name: Install remote desktop
   hosts: localhost
   roles:
-    - xrdp
+    - chrome-remote-desktop
