@@ -1,6 +1,0 @@
-# docker does not release when ubuntu release so there is usually a lag.
-safe_code_name: bionic
-# Ubuntu code name for docker. e.g. bionic, focal.
-# Can use $(lsb_release -cs) to get the current one but not guaranteed to work.
-# So UBUNTU_CODE_NAME=$(lsb_release -cs) ansible-playbook site.yaml
-code_name: "{{lookup('env', 'UBUNTU_CODE_NAME')}}"

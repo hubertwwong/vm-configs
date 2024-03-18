@@ -1,8 +1,0 @@
----
-- hosts: 127.0.0.1
-  tasks:
-  - name: Sample test
-    copy: 
-      src: /tmp/test.txt
-      dest: /tmp.text.dest.txt
-    become: yes

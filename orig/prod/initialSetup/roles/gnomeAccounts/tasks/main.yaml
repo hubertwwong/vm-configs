@@ -1,8 +1,0 @@
-- name: Install gnome online accounts. TODO. Add the accout reg functionality
-  ansible.builtin.package:
-    name:
-      - gnome-control-center 
-      - gnome-online-accounts
-    state: present
-    update_cache: true
-  become: yes

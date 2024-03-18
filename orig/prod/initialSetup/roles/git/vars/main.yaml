@@ -1,2 +1,0 @@
-git_name: "{{lookup('env', 'GIT_NAME')}}"
-git_email: "{{lookup('env', 'GIT_EMAIL')}}"

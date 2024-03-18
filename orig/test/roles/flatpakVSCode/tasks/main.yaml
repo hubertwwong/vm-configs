@@ -1,3 +1,0 @@
-- name: Flatpak. Install VSCode
-  shell: flatpak install -y flathub com.visualstudio.code
-  become: yes

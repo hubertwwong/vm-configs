@@ -1,7 +1,0 @@
-[Service]
-User={{ansible_env.USER}}
-Group={{ansible_env.USER}}
-PIDFile=/home/{{ansible_env.USER}}/.config/resilio-sync/sync.pid
-ExecStartPre=
-ExecStart=
-ExecStart=/usr/bin/rslsync --config /home/{{ansible_env.USER}}/.config/resilio-sync/config.json

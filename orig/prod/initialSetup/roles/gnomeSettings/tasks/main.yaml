@@ -1,5 +1,0 @@
-- name: Disable gnome lock on suspend password prompt
-  shell: gsettings set org.gnome.desktop.screensaver ubuntu-lock-on-suspend false
-
-- name: Set 12 hour format.
-  shell: gsettings set org.gnome.desktop.interface clock-format '12h'
