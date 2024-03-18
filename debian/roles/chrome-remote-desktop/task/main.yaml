@@ -1,0 +1,28 @@
+---
+- name: Install xfce. Assumes you are not using this as your default DE.
+  package:
+    name:
+      - dbus-x11
+      - desktop-base
+      - xfce4
+      - xscreensaver
+    state: present
+    update_cache: true
+  become: true
+
+# - name: Configure chrome remote desktop to use xfce by default.
+#   shell: "sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'"
+
+# Might not need this if doing this on a laptop.
+# - name: Disable lightdm. No connected diisplay.
+#   ansible.builtin.service:
+#     name: lightdm.service
+#     enabled: false
+
+# https://askubuntu.com/questions/1264418/chrome-remote-desktop-host-setup-instructions-not-showing-for-ubuntu-18-04
+# You might need to create this because chrome might not.
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: "{{ lookup('env','HOME') }}/.config/chrome-remote-desktop"
+    state: directory
+    mode: '0755'

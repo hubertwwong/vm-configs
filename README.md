@@ -54,9 +54,11 @@ PLAYBOOK="site-sync" ./scripts/deb-install.sh
 
 #### 2d. remote desktop install
 
-```sh
-PLAYBOOK="site-remote" ./scripts/deb-install.sh
-```
+Gnome has a pretty good server.
+1. Settings -> Sharing -> Remote Desktop.
+2. Toggle it on.
+3. Toggle remote desktop and remote control.
+4. Change the password. Its randomized.
 
 #### 3 Reboot the machine
 
