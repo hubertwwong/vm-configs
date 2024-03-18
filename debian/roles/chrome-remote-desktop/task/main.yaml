@@ -18,3 +18,11 @@
   ansible.builtin.service:
     name: lightdm.service
     enabled: false
+
+# https://askubuntu.com/questions/1264418/chrome-remote-desktop-host-setup-instructions-not-showing-for-ubuntu-18-04
+# You might need to create this because chrome might not.
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: "{{ lookup('env','HOME') }}/.config/chrome-remote-desktop"
+    state: directory
+    mode: '0755'
