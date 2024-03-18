@@ -3,6 +3,11 @@
   debug:
     msg: "{{ ansible_facts }}"
 
+# "{{ ansible_distribution_major_version }}"
+- name: should say bookwork.
+  debug:
+    msg: "{{ ansible_distribution_release }}"
+
 # - name: Add non free repo
 #   apt_repository:
 #     repo: "deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware"
